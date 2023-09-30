@@ -1,6 +1,11 @@
 import * as vscode from "vscode";
 
-export async function getItems(): Promise<vscode.QuickPickItem[]> {
+export type LineItem = vscode.QuickPickItem & {
+  file: vscode.Uri;
+  lineIndex: number;
+};
+
+export async function getItems(): Promise<LineItem[]> {
   function getCodeFiles() {
     return vscode.workspace.findFiles(
       "**/*.{ts,tsx}",
@@ -8,7 +13,7 @@ export async function getItems(): Promise<vscode.QuickPickItem[]> {
     );
   }
 
-  const items: vscode.QuickPickItem[] = [];
+  const items: LineItem[] = [];
 
   const activeFileUri = vscode.window.activeTextEditor?.document.uri;
   const files = await getCodeFiles();
@@ -27,7 +32,7 @@ export async function getItems(): Promise<vscode.QuickPickItem[]> {
         .toString()
         .split("\r\n")
         .forEach((line, index) => {
-          line && items.push({ label: line });
+          line && items.push({ label: line, file, lineIndex: index });
         });
     })
   );

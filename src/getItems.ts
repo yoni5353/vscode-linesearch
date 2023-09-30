@@ -8,7 +8,7 @@ export type LineItem = vscode.QuickPickItem & {
 export async function getItems(): Promise<LineItem[]> {
   function getCodeFiles() {
     return vscode.workspace.findFiles(
-      "**/*.{ts,tsx}",
+      "**/*.{ts,tsx,md,js,jsx,json,yml,yaml,css,scss,less,html,htm}", // TODO any text file
       "**/node_modules/**" // TODO vscode.workspace.getConfiguration("search").get("exclude")
     );
   }
@@ -30,7 +30,7 @@ export async function getItems(): Promise<LineItem[]> {
       const data = await vscode.workspace.fs.readFile(file);
       data
         .toString()
-        .split("\r\n")
+        .split(/\r?\n/)
         .forEach((line, index) => {
           line && items.push({ label: line, file, lineIndex: index });
         });

@@ -41,7 +41,7 @@ function search() {
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand("searchground.search", search)
+    vscode.commands.registerCommand("linesearch.search", search)
   );
 }
 

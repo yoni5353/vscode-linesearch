@@ -1,6 +1,6 @@
 {
-  "name": "searchground",
-  "displayName": "searchground",
+  "name": "linesearch",
+  "displayName": "linesearch",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "searchground.search",
-        "title": "Searchground: Search"
+        "command": "linesearch.search",
+        "title": "Linesearch: Search"
       }
     ]
   },

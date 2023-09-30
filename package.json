@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "searchground.searchactive",
-        "title": "Line Search"
+        "command": "searchground.search",
+        "title": "Searchground: Search"
       }
     ]
   },

@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "searchground.helloWorld",
-        "title": "Hello World"
+        "command": "searchground.searchactive",
+        "title": "Line Search"
       }
     ]
   },
